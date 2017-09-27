@@ -47,7 +47,7 @@ int main(int argc, char **argv)
         //then try to execute it in reverse
         //_revers_plan = _group_plan;
         _revers_plan.trajectory_.joint_trajectory.header.stamp = ros::Time::now();
-        _revers_plan.trajectory_.joint_trajectory.header.frame_id = "world";
+        _revers_plan.trajectory_.joint_trajectory.header.frame_id = _group_plan.trajectory_.joint_trajectory.header.frame_id;
         _revers_plan.trajectory_.joint_trajectory.joint_names = _group_plan.trajectory_.joint_trajectory.joint_names;
 
         int j = _group_plan.trajectory_.joint_trajectory.points.size() - 1;
@@ -55,9 +55,12 @@ int main(int argc, char **argv)
 
             trajectory_msgs::JointTrajectoryPoint pt;
             pt.positions = _group_plan.trajectory_.joint_trajectory.points[j].positions;
-            pt.velocities.resize(7, 0.0);
-            pt.accelerations.resize(7, 0.0);
-            pt.effort.resize(7, 0.0);
+            pt.velocities = _group_plan.trajectory_.joint_trajectory.points[j].velocities;
+            pt.accelerations = _group_plan.trajectory_.joint_trajectory.points[i].accelerations;
+            pt.effort = _group_plan.trajectory_.joint_trajectory.points[j].effort;
+//            pt.velocities.resize(7, 0.0);
+//            pt.accelerations.resize(7, 0.0);
+//            pt.effort.resize(7, 0.0);
             pt.time_from_start = _group_plan.trajectory_.joint_trajectory.points[i].time_from_start;
             //_revers_plan.trajectory_.joint_trajectory.points[i] = _group_plan.trajectory_.joint_trajectory.points[j];
             //_revers_plan.trajectory_.joint_trajectory.points[i].velocities.resize(7, 0);
