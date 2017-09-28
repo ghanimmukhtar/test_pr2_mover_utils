@@ -3,6 +3,6 @@
   <param name="X" value="0.60"/>
   <param name="Y" value="0.10"/>
   <param name="Z" value="0.50"/>
-  <!--node name="test_pr2_mover_utils_node" pkg="test_pr2_mover_utils" type="test_pr2_mover_utils" output="screen" launch-prefix="gdb -ex run -r-args"/-->
-  <node name="test_pr2_mover_utils_node" pkg="test_pr2_mover_utils" type="test_pr2_mover_utils" output="screen" /> 
+  <node name="test_pr2_mover_utils_node" pkg="test_pr2_mover_utils" type="test_pr2_mover_utils" output="screen" launch-prefix="terminator -x gdb --args"/>
+  <!-- <node name="test_pr2_mover_utils_node" pkg="test_pr2_mover_utils" type="test_pr2_mover_utils" output="screen" />  -->
 </launch>
