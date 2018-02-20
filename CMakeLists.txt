@@ -25,6 +25,6 @@ include_directories(
 add_executable(test_pr2_mover_utils src/test_pr2_mover_utils.cpp)
 target_link_libraries(test_pr2_mover_utils ${catkin_LIBRARIES}  )
 
-add_executable(service_user src/service_user.cpp)
-target_link_libraries(service_user ${catkin_LIBRARIES}  )
+add_executable(service_user_pr2 src/service_user.cpp)
+target_link_libraries(service_user_pr2 ${catkin_LIBRARIES}  )
 
